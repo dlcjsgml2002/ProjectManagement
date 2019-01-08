@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ProjectDao">
+	<insert id="insert" parameterType="Project">
+		insert into project_management.project_list (serial_number, project_name, project_content, start_date, end_date, project_progress) values (#{serial_number}, #{project_name}, #{project_content}, #{start_date}, #{end_date}, #{project_progress})
+	</insert>
+	
+	<select id="selectLastNo" resultType="int">
+		select last_insert_id()
+	</select>
+	
+	<select id="select" resultType="Project">
+		select * from project_list order by serial_number desc
+	</select>
+	
+	<select id="selectByNo" resultType="Project">
+		select * from project_list where serial_number = #{serial_number}
+	</select>
+	
+	<delete id="delete" parameterType="Project">
+		delete from project_list where serial_number = #{serial_number}
+	</delete>
+	
+	<update id="update" parameterType="Project">
+		update project_list set project_name = #{project_name}, project_content = #{project_content}, start_date = #{start_date}, end_date = #{end_date}, project_progress = #{project_progress} where serial_number = #{serial_number}
+	</update>
+</mapper>
