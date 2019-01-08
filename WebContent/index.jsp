@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<a href="${pageContext.request.contextPath }/project/list.do">프로젝트 리스트 보기</a>
 </body>
 </html>

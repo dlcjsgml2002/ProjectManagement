@@ -1,0 +1,23 @@
+-- 프로젝트
+DROP SCHEMA IF EXISTS project_management;
+
+-- 프로젝트
+CREATE SCHEMA project_management;
+
+-- 프로젝트
+CREATE TABLE project_management.project_list (
+	serial_number    INT(10)      NOT NULL COMMENT '일련번호', -- 일련번호
+	project_name     VARCHAR(50)  NULL     COMMENT '이름', -- 이름
+	project_content  VARCHAR(255) NULL     COMMENT '내용', -- 내용
+	start_date       DATE         NULL     COMMENT '시작 날짜', -- 시작 날짜
+	end_date         DATE         NULL     COMMENT '종료 날짜', -- 종료 날짜
+	project_progress VARCHAR(10)  NULL     COMMENT '진행 상태' -- 진행 상태
+)
+COMMENT '프로젝트';
+
+-- 프로젝트
+ALTER TABLE project_management.project_list
+	ADD CONSTRAINT PK_project_list -- 프로젝트 기본키
+		PRIMARY KEY (
+			serial_number -- 일련번호
+		);
